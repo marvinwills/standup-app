@@ -48,3 +48,5 @@ gem "rspec-rails"
 gem "webrat"
 gem "cucumber"
 
+gem "cocoon"
+
