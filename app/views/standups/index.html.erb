@@ -4,20 +4,16 @@
 
 	<h2>Yesterday items:</h2>
 	<% standup.yesterday_items.each do |yesterday_item| %> 
-		<p>- 
-			<%= yesterday_item.item %>
-		</p>
+		<p>- <%= yesterday_item.item %></p>
 	<% end %>
 	
 	<h2>Today items:</h2>
 	<% standup.today_items.each do |today_item| %>
-		<p>- 
-			<%= today_item.item %>
-		</p>
+		<p>- <%= today_item.item %></p>
 	<% end %>
 	
 	<%= link_to 'Edit', edit_standup_path(standup) %>
-	<%= link_to 'Delete', standup_path(standup), method: :delete, data: { confirm: 'Are you sure?' } %>
+	<%= button_to 'Delete', standup_path(standup), method: :delete, data: { confirm: 'Are you sure?' } %>
 	
 <% end %>
 
