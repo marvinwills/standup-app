@@ -18,11 +18,15 @@
 	<ul>
 		<%= f.fields_for :today_items do |f2| %>
 		<li>
-			<%= f2.label :item %>
-			<%= f2.text_field :item %>
+			<%= render "today_item_fields", :f => f2 %>
 		</li>
 		<% end %>
 	</ul>
+	
+	<div class="links">
+		<%= link_to_add_association 'add item', f, :today_items %>
+	</div>
+	
 	<%= f.submit %>
 <% end %>
 
