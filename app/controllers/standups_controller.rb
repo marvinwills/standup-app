@@ -14,13 +14,13 @@ class StandupsController < ApplicationController
 	end
 	
 	def create
-		@standup = Standup.new(standup_params)
+		#@standup = Standup.new(standup_params)
 
-		if @standup.save
+		#if @standup.save
 			redirect_to standups_path
-		else
-			render 'new'
-		end
+		#else
+		#	render 'new'
+		#end
 	end
 	
 	def edit
