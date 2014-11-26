@@ -12,7 +12,7 @@
 		<p>- <%= today_item.item %></p>
 	<% end %>
 	
-	<%= link_to 'Edit', edit_standup_path(standup) %>
+	<%= button_to 'Edit', edit_standup_path(standup), method: :get %>
 	<%= button_to 'Delete', standup_path(standup), method: :delete, data: { confirm: 'Are you sure?' } %>
 	
 <% end %>
