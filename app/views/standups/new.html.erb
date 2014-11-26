@@ -10,6 +10,8 @@
 		<% end %>
 	</ul>
 	
+	<%= link_to_add_association 'add item', f, :yesterday_item %>
+	
 	Today Items:
 	<ul>
 		<%= f.fields_for :today_items do |f2| %>
