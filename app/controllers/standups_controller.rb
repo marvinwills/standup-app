@@ -6,8 +6,8 @@ class StandupsController < ApplicationController
 	def new
 		@standup = Standup.new
 		
-		#@standup.yesterday_items.build
-		#@standup.today_items.build
+		@standup.yesterday_items.build
+		@standup.today_items.build
 	end
 	
 	def create
