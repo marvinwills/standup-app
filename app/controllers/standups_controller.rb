@@ -7,6 +7,7 @@ class StandupsController < ApplicationController
 	end
 	
 	def create
+		render plain: params[:standup].inspect
 	end
 	
 	def edit
