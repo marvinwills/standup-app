@@ -32,7 +32,7 @@ class StandupsController < ApplicationController
 	
 	private
 	def standup_params
-		params.require(:standup).permit(yesterday_items_attributes: [:id, 1, :item], today_items_attributes: [:id, 1, :item])
+		params.require(:standup).permit(yesterday_items_attributes: [:id, 1, :item, _:destroy], today_items_attributes: [:id, 1, :item, :_destroy])
 	end
 	
 end
