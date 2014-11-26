@@ -1,6 +1,20 @@
 <h1>Standups placeholder</h1>
 
+<% @standups.each do |standup|>
 
+	<h2>Yesterday items:</h2>
+	<% standup.yesterday_items.each do |yesterday_item| %>
+		<p>
+			<strong>Number:</strong>
+			<%= yesterday_item.number %>
+		</p>
+ 
+		<p>
+			<strong>Item:</strong>
+			<%= yesterday_item.item %>
+		</p>
+	<% end %>
+<% end %>
 
 
 <%= link_to 'New Standup', new_standup_path %>
