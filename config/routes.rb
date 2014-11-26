@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   
   resources :standups do
 		resources :yesterday_items
+		resources :today_items
 	end
 
   # Example resource route with options:
