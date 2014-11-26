@@ -1,6 +1,6 @@
 <h1>Edit Standup/h1>
 
-<%= form_for @standup, method: :patch do |f| %>
+<%= form_for @standup, url: standup_path(@standup), method: :patch do |f| %>
 	Yesterday Items:
 	<ul>
 		<%= f.fields_for :yesterday_items do |f1| %>
