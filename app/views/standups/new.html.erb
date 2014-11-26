@@ -1,9 +1,9 @@
 <h1>New Standup</h1>
 
-<%= semantic_form_for @standup do |f| %>
+<%= form_for @standup do |f| %>
 	Yesterday Items:
 	<ul>
-		<%= f.semantic_fields_for :yesterday_items do |f1| %>
+		<%= f.fields_for :yesterday_items do |f1| %>
 			<li>
 				<%= f1.label :item %>
 				<%= f1.text_field :item %>
