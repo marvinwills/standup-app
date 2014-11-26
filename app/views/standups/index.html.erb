@@ -1,6 +1,24 @@
 <h1>Standups: </h1>
 
+<% @standups.each do |standup| %>
 
+	<h2>Yesterday items:</h2>
+	<% standup.yesterday_items.each do |yesterday_item| %> 
+		<p>- 
+			<%= yesterday_item.item %>
+		</p>
+	<% end %>
+	
+	<h2>Today items:</h2>
+	<% standup.today_items.each do |today_item| %>
+		<p>- 
+			<%= today_item.item %>
+		</p>
+	<% end %>
+	
+	
+	
+<% end %>
 
 
 <%= link_to 'New Standup', new_standup_path %>
