@@ -4,7 +4,7 @@ class StandupsController < ApplicationController
 	end
 	
 	def new
-		@standup = Standup.New
+		#@standup = Standup.New
 		
 		#@standup.yesterday_items.build
 		#@standup.today_items.build
