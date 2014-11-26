@@ -1,8 +1,7 @@
 <h1>Standups: </h1>
 
 <% @standups.each do |standup| %>
-	
-	<% standup.timestamps.created_on.to_date %>
+
 	<h2>Yesterday items:</h2>
 	<% standup.yesterday_items.each do |yesterday_item| %>
 		<p>

@@ -3,7 +3,7 @@
 <%= form_for @standup do |f| %>
 	Yesterday Items:
 	<ul>
-		<%= f.fields_for :yesterday_item do |f1| %>
+		<%= f.fields_for :yesterday_items do |f1| %>
 			<li>
 				<%= f1.label :item %>
 				<%= f1.text_area :item %>
@@ -13,7 +13,7 @@
 	
 	Today Items:
 	<ul>
-		<%= f.fields_for :today_item do |f2| %>
+		<%= f.fields_for :today_items do |f2| %>
 		<li>
 			<%= f2.label :item %>
 			<%= f2.text_area :item %>
