@@ -5,9 +5,11 @@
 	<ul>
 		<%= f.fields_for :yesterday_items do |f1| %>
 			<li>
-				<%= f1.label :item %>
-				<%= f1.text_field :item %>
-				<%= link_to_remove_association 'Remove item', f %>
+				<div class="nested-fields">
+					<%= f1.label :item %>
+					<%= f1.text_field :item %>
+					<%= link_to_remove_association 'Remove item', f %>
+				</div>
 			</li>
 		<% end %>
 		
