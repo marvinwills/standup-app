@@ -49,4 +49,5 @@ gem "webrat"
 gem "cucumber"
 
 gem "cocoon"
+gem "execjs"
 
