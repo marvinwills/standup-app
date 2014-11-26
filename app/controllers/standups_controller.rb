@@ -24,7 +24,7 @@ class StandupsController < ApplicationController
 	end
 	
 	def edit
-		@standup = Standup.new(params[:id])
+		@standup = Standup.find(params[:id])
 	end
 	
 	def update
