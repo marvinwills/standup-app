@@ -9,6 +9,8 @@
 				<%= f1.text_area :item %>
 			</li>
 		<% end %>
+		<%= link_to_add_association 'add yesterday item', f, :yesterday_items,  
+			:wrap_object => Proc.new {|f1| f.build_yesterday_item; f } %>
 	</ul>
 	
 	Today Items:
