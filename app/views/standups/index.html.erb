@@ -16,10 +16,12 @@
 		</p>
 	<% end %>
 	
-	<%= link_to 'Edit Standup', edit_standup_path(standup) %>
+	<%= link_to 'Edit', edit_standup_path(standup) %>
+	<%= link_to 'Delete', standup_path(standup), method: :delete, data: { confirm: 'Are you sure?' } %>
 	
 <% end %>
 
+<br>
 
 <%= link_to 'New Standup', new_standup_path %>
 

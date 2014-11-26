@@ -38,6 +38,10 @@ class StandupsController < ApplicationController
 	end
 	
 	def destroy
+		@standup = Standup.find(params[:id])
+		@standup.destroy
+ 
+		redirect_to standups_path
 	end
 	
 	private
