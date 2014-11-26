@@ -28,6 +28,13 @@ class StandupsController < ApplicationController
 	end
 	
 	def update
+		@standup = Standup.find(params[:id])
+ 
+		if @standup.update(standup_params)
+			redirect_to standups_path
+		else
+			render 'edit'
+		end
 	end
 	
 	def destroy
