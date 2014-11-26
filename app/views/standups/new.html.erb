@@ -1,14 +1,17 @@
 <h1>New Standup</h1>
 
-<%= form_for @standup do |f| %>
+<%= semantic_form_for @standup do |f| %>
+	<% f.inputs do %>
 	Yesterday Items:
 	<ul>
-		<%= f.fields_for :yesterday_items do |f1| %>
+		<%= f.semantic_fields_for :yesterday_items do |f1| %>
 			<li>
 				<%= render "yesterday_item_fields", :f => f1 %>
 			</li>
 		<% end %>
 	</ul>
+	
+	<% end %>
 	
 	<div class="links">
 		<%= link_to_add_association 'add item', f, :yesterday_items %>
