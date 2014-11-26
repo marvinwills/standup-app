@@ -14,6 +14,19 @@
 			<%= yesterday_item.item %>
 		</p>
 	<% end %>
+	
+	<h2>Today items:</h2>
+	<% standup.today_items.each do |today_item| %>
+		<p>
+			<strong>Number:</strong>
+			<%= today_item.number %>
+		</p>
+ 
+		<p>
+			<strong>Item:</strong>
+			<%= today_item.item %>
+		</p>
+	<% end %>
 <% end %>
 
 
