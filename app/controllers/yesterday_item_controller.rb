@@ -1,0 +1,2 @@
+class YesterdayItemController < ApplicationController
+end
