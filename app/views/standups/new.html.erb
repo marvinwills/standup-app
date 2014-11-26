@@ -5,7 +5,7 @@
 	<ul>
 		<%= f.fields_for :yesterday_items do |f1| %>
 			<li>
-				<%= render "yesterday_form" %>
+				<%= render "yesterday_form", :f => f1 %>
 			</li>
 		<% end %>
 	</ul>
