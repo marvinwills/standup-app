@@ -1,3 +1,25 @@
-<h1>Edit Standup placeholder</h1>
+<h1>Edit Standup/h1>
+
+<%= form_for @standup, method: :patch do |f| %>
+	Yesterday Items:
+	<ul>
+		<%= f.fields_for :yesterday_items do |f1| %>
+			<li>
+				<%= render "yesterday_form", :f => f1 %>
+			</li>
+		<% end %>
+	</ul>
+	
+	Today Items:
+	<ul>
+		<%= f.fields_for :today_items do |f2| %>
+		<li>
+			<%= f2.label :item %>
+			<%= f2.text_field :item %>
+		</li>
+		<% end %>
+	</ul>
+	<%= f.submit %>
+<% end %>
 
 <%= link_to 'Back', standups_path %>
