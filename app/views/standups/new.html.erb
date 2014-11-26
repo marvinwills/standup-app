@@ -5,12 +5,14 @@
 	<ul>
 		<%= f.fields_for :yesterday_items do |f1| %>
 			<li>
-				<%= render "yesterday_form", :f => f1 %>
+				<%= render "yesterday_item_fields", :f => f1 %>
 			</li>
 		<% end %>
 	</ul>
 	
-	<%= link_to_add_association 'add item', f, :yesterday_item %>
+	<div class="links">
+		<%= link_to_add_association 'add item', f, :yesterday_item %>
+	</div>
 	
 	Today Items:
 	<ul>
