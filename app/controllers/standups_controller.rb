@@ -2,10 +2,8 @@ class StandupsController < ApplicationController
 
 	def index
 		user = User.find(params[:user_id])
-		if user == nil
-		  @standups = Standup.all
-		else
-		  @standups = user.standups
+		
+		@user_standups = user.standups
 	end
 	
 	def new
