@@ -49,8 +49,6 @@ GEM
       gherkin (~> 2.12)
       multi_json (>= 1.7.5, < 2.0)
       multi_test (>= 0.1.1)
-    devise (1.1.rc0)
-      warden (~> 0.10.3)
     diff-lcs (1.2.5)
     erubis (2.7.0)
     execjs (2.2.2)
@@ -153,8 +151,6 @@ GEM
     uglifier (2.5.3)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
-    warden (0.10.7)
-      rack (>= 1.0.0)
     webrat (0.7.3)
       nokogiri (>= 1.2.0)
       rack (>= 1.0)
@@ -169,7 +165,6 @@ DEPENDENCIES
   coffee-rails (~> 4.0.0)
   commonjs
   cucumber
-  devise (= 1.1.rc0)
   execjs
   jbuilder (~> 2.0)
   jquery-rails
