@@ -4,6 +4,8 @@ class CreateStandups < ActiveRecord::Migration
     create_table :standups do |t|
 	
 	  t.datetime :created_at
+	  
+	  t.references :user, index: true
 
       t.timestamps
     end
