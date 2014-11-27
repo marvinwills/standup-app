@@ -4,7 +4,7 @@
   <% if user_signed_in? %>
     Signed in as <%= current_user.email %>. Not you?
     <%= button_to "Sign out", destroy_user_session_path, :method => :delete %><br>
-	<%= button_to 'My Standups', url_for([@user, @standups]), :method => :get %>
+	<%= link_to 'My Standups', url_for([@user, @standups]) %>
   <% else %>
     <%= button_to "Sign up", new_user_registration_path, :method => :get %> or <%= button_to "sign in", new_user_session_path, :method => :get %>
   <% end %>
