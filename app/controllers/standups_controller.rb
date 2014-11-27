@@ -16,10 +16,11 @@ class StandupsController < ApplicationController
 	end
 	
 	def create
-		@standup = Standup.new(standup_params)
+		@user = User.find(params[:user_id])
+		@standup = @user.standups.build(standup_params)
 
 		if @standup.save
-			redirect_to standups_path
+			redirect_to user_standups_path(@user)
 		else
 			render 'new'
 		end
@@ -36,7 +37,7 @@ class StandupsController < ApplicationController
 		@standup = Standup.find(params[:id])
  
 		if @standup.update(standup_params)
-			redirect_to standups_path
+			redirect_to user_standups_path
 		else
 			render 'edit'
 		end
@@ -46,7 +47,7 @@ class StandupsController < ApplicationController
 		@standup = Standup.find(params[:id])
 		@standup.destroy
  
-		redirect_to standups_path
+		redirect_to user_standups_path
 	end
 	
 	private
