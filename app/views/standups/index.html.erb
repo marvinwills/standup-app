@@ -19,5 +19,5 @@
 <% end %>
 <br>
 
-<%= button_to 'New Standup', new_user_standup_path(@user), method: :get %>
+<%= button_to 'New Standup', new_user_standup_path(current_user), method: :get %>
 <%= button_to 'Home', welcome_index_path, :method => :get %>
