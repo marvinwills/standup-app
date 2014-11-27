@@ -1,14 +1,12 @@
 class StandupsController < ApplicationController
 
 	def index
-		@user = User.find(params[:user_id])
-		
-		@standups = Standup.all
+		@user = current_user
+		@standups = @user.standups
 	end
 	
 	def new
-		@user = User.find(params[:user_id])
-		@standup = @user.standups.build
+		@standup = Standup.new
 		
 		3.times{
 			@standup.yesterday_items.build
