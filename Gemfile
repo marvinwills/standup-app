@@ -43,11 +43,6 @@ gem 'carrierwave'
 
 gem 'twitter-bootstrap-rails' #, :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
 
-gem "rspec"
-gem "rspec-rails"
-gem "webrat"
-gem "cucumber"
-
 gem "cocoon"
 gem "execjs"
 gem "commonjs"
