@@ -2,15 +2,13 @@ class StandupsController < ApplicationController
 
 	def index
 		@user = User.find(params[:user_id])
-		if(@user == nil)
-			@standups = Standup.all
-		else 
-			redirect_to welcome_path
+
+		@standups = Standup.all
 	end
 	
 	def new
 		@user = User.find(params[:user_id])
-		@standup = user.standups.build
+		@standup = @user.standups.build
 		
 		3.times{
 			@standup.yesterday_items.build
