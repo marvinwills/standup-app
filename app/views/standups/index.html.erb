@@ -2,12 +2,14 @@
 
 <% @standups.each do |standup| %>
 
-	<h2>Yesterday items:</h2>
+	<h2><%= standup.created_at %></h2>
+
+	<h3>Yesterday items:</h3>
 	<% standup.yesterday_items.each do |yesterday_item| %> 
 		<p>- <%= yesterday_item.item %></p>
 	<% end %>
 	
-	<h2>Today items:</h2>
+	<h3>Today items:</h3>
 	<% standup.today_items.each do |today_item| %>
 		<p>- <%= today_item.item %></p>
 	<% end %>
