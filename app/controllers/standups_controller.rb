@@ -16,7 +16,7 @@ class StandupsController < ApplicationController
 	def create
 		@standup = Standup.new(standup_params)
 		
-		@standup.date = Date.today
+		@standup.date = Time.zone.today
 
 		if @standup.save
 			redirect_to standups_path
