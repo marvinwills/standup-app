@@ -3,7 +3,7 @@ class StandupsController < ApplicationController
 	def index
 		@user = User.find(params[:user_id])
 		
-		@standups = @user.standups
+		@standups = Standup.all
 	end
 	
 	def new
