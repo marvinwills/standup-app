@@ -26,8 +26,8 @@ class StandupsController < ApplicationController
 	def edit
 		@standup = Standup.find(params[:id])
 		
-		(3-@standup.yesterday_items.lenght).times{ @standup.yesterday_items.build }
-		(3-@standup.today_items.lenght).times{ @standup.today_items.build }
+		(3-@standup.yesterday_items.count).times{ @standup.yesterday_items.build }
+		(3-@standup.today_items.count).times{ @standup.today_items.build }
 	end
 	
 	def update
