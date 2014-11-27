@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :installs
+  #devise_for :installs
   get 'welcome/index'
 
   # The priority is based upon order of creation: first created -> highest priority.
