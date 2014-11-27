@@ -50,4 +50,5 @@ gem "cucumber"
 
 gem "cocoon"
 gem "execjs"
+gem "commonjs"
 
