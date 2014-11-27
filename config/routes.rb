@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  devise_for :users
-  #devise_for :installs
   get 'welcome/index'
 
   # The priority is based upon order of creation: first created -> highest priority.
@@ -17,11 +15,12 @@ Rails.application.routes.draw do
 
   # Example resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
-  
-  resources :standups do
-		resources :yesterday_items
-		resources :today_items
+  devise_for :users do
+    resources :standups do
+	  resources :yesterday_items
+	  resources :today_items
 	end
+  end
 
   # Example resource route with options:
   #   resources :products do
