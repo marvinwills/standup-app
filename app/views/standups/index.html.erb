@@ -1,7 +1,6 @@
 <h1>Standups: </h1>
 
 <% @standups.each do |standup| %>
-	<% if current_user.standups.include?(standup)? %>
 	  <h2><%= standup.created_at.to_date %></h2>
 
 	  <h3>Yesterday items:</h3>
@@ -13,7 +12,6 @@
 	  <% standup.today_items.each do |today_item| %>
 		  <p>- <%= today_item.item %></p>
 	  <% end %>
-	<% end %>
 	
 <% end %>
 <br>
