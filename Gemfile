@@ -52,3 +52,5 @@ gem "cocoon"
 gem "execjs"
 gem "commonjs"
 
+gem "rails-js"
+
