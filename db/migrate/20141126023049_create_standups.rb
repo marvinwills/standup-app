@@ -3,7 +3,7 @@ class CreateStandups < ActiveRecord::Migration
 	drop_table :standups
     create_table :standups do |t|
 	
-	  t.date :date
+	  t.datetime :created_at
 
       t.timestamps
     end

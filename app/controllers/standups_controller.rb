@@ -15,8 +15,6 @@ class StandupsController < ApplicationController
 	
 	def create
 		@standup = Standup.new(standup_params)
-		
-		@standup.date = Time.zone.today
 
 		if @standup.save
 			redirect_to standups_path
@@ -51,7 +49,7 @@ class StandupsController < ApplicationController
 	
 	private
 	def standup_params
-		params.require(:standup).permit(:date, yesterday_items_attributes: [:id, 1, :item, :_destroy], today_items_attributes: [:id, 1, :item, :_destroy])
+		params.require(:standup).permit(yesterday_items_attributes: [:id, 1, :item, :_destroy], today_items_attributes: [:id, 1, :item, :_destroy])
 	end
 	
 end
