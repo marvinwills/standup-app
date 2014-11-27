@@ -19,7 +19,7 @@ Rails.application.routes.draw do
   #   resources :products
   
   resources :users do
-    resources :standups do
+    resources :standups, :shallow => true do
       resources :yesterday_items
       resources :today_items
     end
