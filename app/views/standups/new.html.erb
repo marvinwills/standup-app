@@ -1,6 +1,6 @@
 <h1>New Standup</h1>
 
-<%= form_for [@user, @standup] do |f| %>
+<%= form_for([@user, @standup]) do |f| %>
 	Yesterday Items:
 	<ul>
 		<%= f.fields_for :yesterday_items do |f1| %>
