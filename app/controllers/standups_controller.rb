@@ -2,10 +2,10 @@ class StandupsController < ApplicationController
 
 	def index
 		user = User.find(params[:user_id])
-		#if user == nil
+		if user == nil
 		  @standups = Standup.all
-		#else
-		#  redirect_to welcome_path
+		else
+		  @standups = user.standups
 	end
 	
 	def new
