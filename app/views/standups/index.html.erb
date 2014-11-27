@@ -13,7 +13,7 @@
 		  <p>- <%= today_item.item %></p>
 	  <% end %>
 	  
-	<%= button_to 'Edit', edit_user_standup_path(current_user, standup), method: :get %>
+	<%= button_to 'Edit', edit_user_standup_path(@user, standup), method: :get %>
 	<%= button_to 'Delete', user_standup_path(current_user, standup), method: :delete, :confirm => "Are you sure?" %>
 	
 <% end %>
