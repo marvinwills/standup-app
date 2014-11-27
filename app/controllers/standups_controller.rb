@@ -6,6 +6,7 @@ class StandupsController < ApplicationController
 			@standups = User.find(params[:user_id]).standups
 		else
 			@standups = Standup.all
+		end
 	end
 	
 	def new
