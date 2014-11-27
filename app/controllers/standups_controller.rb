@@ -7,7 +7,8 @@ class StandupsController < ApplicationController
 	end
 	
 	def new
-		@standup = User.find(params[:user_id]).standups.build
+		@user = User.find(params[:user_id])
+		@standup = @user.standups.build
 		
 		3.times{
 			@standup.yesterday_items.build
