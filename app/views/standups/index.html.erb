@@ -1,6 +1,6 @@
 <h1>Standups: </h1>
 
-<% @standups.each do |standup| %>
+<% [@user, @standups.each] do |standup| %>
 	  <h2><%= standup.created_at.to_date %></h2>
 
 	  <h3>Yesterday items:</h3>
