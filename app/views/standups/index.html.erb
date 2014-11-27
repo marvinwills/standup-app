@@ -14,14 +14,11 @@
 		<p>- <%= today_item.item %></p>
 	<% end %>
 	
-	<%= button_to 'Edit', user_edit_standup_path(current_user, standup), method: :get %>
-	<%= button_to 'Delete', user_standup_path(current_user, standup), method: :delete, :confirm => "Are you sure?" %>
+
 	
 <% end %>
 
 <br>
-
-<%= button_to 'New Standup', user_new_standup_path(current_user), method: :get %>
 
 
 <%= button_to 'Home', welcome_index_path, :method => :get %>
