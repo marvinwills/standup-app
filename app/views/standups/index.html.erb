@@ -2,7 +2,7 @@
 
 <% @standups.each do |standup| %>
 
-	<h2><%= standup.created_at %></h2>
+	<h2><%= standup.created_at.to_date %></h2>
 
 	<h3>Yesterday items:</h3>
 	<% standup.yesterday_items.each do |yesterday_item| %> 
