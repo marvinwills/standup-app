@@ -5,5 +5,5 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 		 
   has_many :standups, dependent: :destroy
-  accepts_nested_attributes_for :standups, :reject_if => :all_blank, :allow_destroy => true
+
 end
