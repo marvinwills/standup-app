@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :users, :path => 'accounts'
+  devise_for :users, :path => 'accounts', :controllers => { registrations: 'registrations' }
   #devise_for :installs
   get 'welcome/index'
 
@@ -19,7 +19,7 @@ Rails.application.routes.draw do
   #   resources :products
   
   resources :users do
-    resources :standups, :shallow => true do
+    resources :standups do
       resources :yesterday_items
       resources :today_items
     end

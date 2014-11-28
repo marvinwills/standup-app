@@ -27,27 +27,30 @@ class StandupsController < ApplicationController
 	end
 	
 	def edit
-		@standup = Standup.find(params[:id])
+		@user = User.find(params[:user_id])
+		@standup = @user.standups.find(params[:id])
 		
 		(3-@standup.yesterday_items.count).times{ @standup.yesterday_items.build }
 		(3-@standup.today_items.count).times{ @standup.today_items.build }
 	end
 	
 	def update
-		@standup = Standup.find(params[:id])
+		user = User.find(params[:user_id])
+		@standup = user.standups.find(params[:id])
  
 		if @standup.update(standup_params)
-			redirect_to user_standups_path
+			redirect_to user_standups_path(user)
 		else
 			render 'edit'
 		end
 	end
 	
 	def destroy
-		@standup = Standup.find(params[:id])
+		user = User.find(params[:user_id])
+		@standup = user.standups.find(params[:id])
 		@standup.destroy
  
-		redirect_to user_standups_path
+		redirect_to user_standups_path(user)
 	end
 	
 	private

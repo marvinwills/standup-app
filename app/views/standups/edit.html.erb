@@ -1,6 +1,6 @@
 <h1>Edit Standup</h1>
 
-<%= form_for @standup, method: :patch do |f| %>
+<%= form_for [@user, @standup], method: :patch do |f| %>
 	Yesterday Items:
 	<ul>
 		<%= f.fields_for :yesterday_items do |f1| %>
@@ -30,4 +30,4 @@
 	<%= f.submit %>
 <% end %>
 
-<%= button_to 'Back', standups_path, method: :get %>
+<%= link_to 'Back', user_standups_path(current_user) %>
