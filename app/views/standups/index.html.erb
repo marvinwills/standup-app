@@ -1,8 +1,7 @@
-<h1>Standups: </h1>
+<h1><%= current_user.email %>  Standups: </h1>
 
 <% @standups.each do |standup| %>
 
-	<%= current_user.email %>
 	  <h2><%= standup.created_at.to_date %></h2>
 
 	  <h3>Yesterday items:</h3>

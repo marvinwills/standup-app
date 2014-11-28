@@ -1,18 +1,11 @@
 class StandupsController < ApplicationController
 
 	def index
-	
-		#if(params[:user_id])
-		#	user = User.find(params[:user_id])
-		#	@standups = user.standups
-		#else
-			@standups = Standup.all
-		#end
+		@standups = Standup.all
 	end
 	
 	def new
-		@user = User.find(params[:user_id])
-		@standup = @user.standups.build
+		@standup = Standup.build
 		
 		3.times{
 			@standup.yesterday_items.build
@@ -21,8 +14,7 @@ class StandupsController < ApplicationController
 	end
 	
 	def create
-		@user = User.find(params[:user_id])
-		@standup = @user.standups.build(standup_params)
+		@standup = Standup.build(standup_params)
 
 		if @standup.save
 			redirect_to user_standups_path(@user)
