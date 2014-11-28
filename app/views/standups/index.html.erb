@@ -1,6 +1,8 @@
 <h1>Standups: </h1>
 
 <% @standups.each do |standup| %>
+
+	<% if current_user.standups.include?(standup)? %>
 	  <h2><%= standup.created_at.to_date %></h2>
 
 	  <h3>Yesterday items:</h3>
@@ -15,7 +17,8 @@
 	  
 	<%= button_to 'Edit', edit_standup_path(standup), method: :get %>
 	<%= button_to 'Delete', standup_path(standup), method: :delete, :confirm => "Are you sure?" %>
-	
+	<% end %>
+
 <% end %>
 <br>
 
