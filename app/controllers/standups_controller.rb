@@ -3,8 +3,8 @@ class StandupsController < ApplicationController
 	def index
 	
 		if(params[:user_id])
-			@user = User.find(params[:user_id])
-			@standups = @user.standups
+			user = User.find(params[:user_id])
+			@standups = user.standups
 		else
 			@standups = Standup.all
 		end
