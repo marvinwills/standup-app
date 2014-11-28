@@ -1,6 +1,6 @@
 class CreateStandups < ActiveRecord::Migration
   def change
-	drop_table :standups
+	#drop_table :standups
     create_table :standups do |t|
 	
 	  t.datetime :created_at

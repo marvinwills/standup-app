@@ -6,7 +6,8 @@ class StandupsController < ApplicationController
 	end
 	
 	def new
-		@standup = Standup.build
+		@user = User.find(params[:user_id])
+		@standup = @user.standups.build
 		
 		3.times{
 			@standup.yesterday_items.build
@@ -15,10 +16,11 @@ class StandupsController < ApplicationController
 	end
 	
 	def create
-		@standup = Standup.build(standup_params)
+		user = User.find(params[:user_id])
+		@standup = user.standups.build(standup_params)
 
 		if @standup.save
-			redirect_to user_standups_path(@user)
+			redirect_to user_standups_path(user)
 		else
 			render 'new'
 		end

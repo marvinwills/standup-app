@@ -24,6 +24,8 @@ default: &default
 development:
   <<: *default
   database: standup-app_development
+  username: standup-app
+  password: kmihalek
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
@@ -58,6 +60,8 @@ development:
 test:
   <<: *default
   database: standup-app_test
+  username: standup-app
+  password: kmihalek
 
 # As with config/secrets.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -82,4 +86,4 @@ production:
   <<: *default
   database: standup-app_production
   username: standup-app
-  password: <%= ENV['STANDUP-APP_DATABASE_PASSWORD'] %>
+  password: kmihalek
