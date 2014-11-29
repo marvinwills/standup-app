@@ -1,5 +1,7 @@
 class StandupsController < ApplicationController
 
+	respond_to :html, :js
+	
 	def index
 		user = User.find(params[:user_id])
 		@standups = user.standups
@@ -17,13 +19,10 @@ class StandupsController < ApplicationController
 	
 	def create
 		user = User.find(params[:user_id])
-		@standup = user.standups.build(standup_params)
+		@standups = user.standups
+		@standup = @standups.build(standup_params)
 
-		if @standup.save
-			redirect_to user_standups_path(user)
-		else
-			render 'new'
-		end
+		@standup.save
 	end
 	
 	def edit
@@ -36,21 +35,22 @@ class StandupsController < ApplicationController
 	
 	def update
 		user = User.find(params[:user_id])
-		@standup = user.standups.find(params[:id])
+		@standups = user.standups
+		@standup = @standups.find(params[:id])
  
-		if @standup.update(standup_params)
-			redirect_to user_standups_path(user)
-		else
-			render 'edit'
-		end
+		@standup.update(standup_params)
+	end
+	
+	def delete
+		user = User.find(params[:user_id])
+		@standup = user.standups.find(params[:standup_id])
 	end
 	
 	def destroy
 		user = User.find(params[:user_id])
-		@standup = user.standups.find(params[:id])
+		@standups = user.standups
+		@standup = @standups.find(params[:id])
 		@standup.destroy
- 
-		redirect_to user_standups_path(user)
 	end
 	
 	private

@@ -20,6 +20,7 @@ Rails.application.routes.draw do
   
   resources :users do
     resources :standups do
+	  get "delete"
       resources :yesterday_items
       resources :today_items
     end

@@ -1,0 +1,11 @@
+<div class="modal-header">
+  <h3>Delete Standup</h3>
+</div>
+<div class="modal-body">
+<ul class="errors"></ul>
+Are you sure you wish to delete this standup?
+</div>
+<div class="modal-footer">
+  <%= link_to "Yes", user_standup_path(current_user, @standup), method: :delete, remote: true %>
+  <%= link_to "No", "#", class: "btn", data: { dismiss: "modal" } %>
+</div>
