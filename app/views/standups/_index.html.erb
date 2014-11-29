@@ -1,0 +1,18 @@
+<% @standups.each do |standup| %>
+
+	  <h2><%= standup.created_at.to_date %></h2>
+
+	  <h3>Yesterday items:</h3>
+	  <% standup.yesterday_items.each do |yesterday_item| %> 
+		  <p>- <%= yesterday_item.item %></p>
+	  <% end %>
+	
+	  <h3>Today items:</h3>
+	  <% standup.today_items.each do |today_item| %>
+		  <p>- <%= today_item.item %></p>
+	  <% end %>
+	  
+	<%= link_to 'Edit', edit_user_standup_path(current_user, standup) %>
+	<%= link_to 'Delete', user_standup_path(current_user, standup), method: :delete, data: { confirm: "Are you sure?"} %>
+
+<% end %>

@@ -65,6 +65,7 @@ GEM
     mail (2.6.3)
       mime-types (>= 1.16, < 3)
     mime-types (2.4.3)
+    mini_magick (4.0.1)
     minitest (5.4.3)
     multi_json (1.10.1)
     orm_adapter (0.5.0)
@@ -144,6 +145,7 @@ DEPENDENCIES
   execjs
   jbuilder (~> 2.0)
   jquery-rails
+  mini_magick
   pg
   rails (= 4.1.8)
   rails-js
