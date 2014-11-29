@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 		 
-  has_many :standups, dependent: :destroy
+  has_many :standups, -> { order "created_at DESC" }, dependent: :destroy
   mount_uploader :avatar, AvatarUploader
 
 end
