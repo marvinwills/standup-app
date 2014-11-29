@@ -2,26 +2,18 @@
 	<div class="modal-body">
 		<ul class="errors"></ul>
 		Yesterday Items:
-		<ul>
-			<%= f.fields_for :yesterday_items do |f1| %>
-				<li>
-					<%= render "yesterday_item_fields", :f => f1 %>
-				</li>
-			<% end %>
-		</ul>
+		<%= f.fields_for :yesterday_items do |f1| %>
+			<%= render "yesterday_item_fields", :f => f1 %>
+		<% end %>
 	
 		<div class="links">
 			<%= link_to_add_association 'add item', f, :yesterday_items %>
 		</div>
 	
 		Today Items:
-		<ul>
-			<%= f.fields_for :today_items do |f2| %>
-			<li>
-				<%= render "today_item_fields", :f => f2 %>
-			</li>
-			<% end %>
-		</ul>
+		<%= f.fields_for :today_items do |f2| %>
+			<%= render "today_item_fields", :f => f2 %>
+		<% end %>
 	
 		<div class="links">
 			<%= link_to_add_association 'add item', f, :today_items %>
