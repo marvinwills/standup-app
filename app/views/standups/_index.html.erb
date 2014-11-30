@@ -3,14 +3,42 @@
 	  <h2><%= standup.created_at.to_date %></h2>
 
 	  <h3>Yesterday items:</h3>
-	  <% standup.yesterday_items.each do |yesterday_item| %> 
-		  <p>- <%= yesterday_item.item %></p>
-	  <% end %>
+	  <div class="yesterday-item-index">
+        <% standup.yesterday_items.each do |yesterday_item| %> 
+		  <div id="yesterday_item_content">- 
+		    <%= yesterday_item.item %>
+		    <%= link_to 'Edit', edit_user_standup_yesterday_item_path(current_user, standup, yesterday_item), remote: true %> 
+		    <%= link_to 'Delete', user_standup_yesterday_item_delete_path(current_user, standup, yesterday_item), remote: true %>
+		  </div>
+        <% end %>
+      </div>
+	  
+	  <div id="yesterday-item-modal" class="modal fade">
+		<div class="modal-dialog">
+		  <div id="inner-yesterday-item-modal" class="modal-content"></div>
+		</div>
+	  </div>
+	  
+	  <%= link_to 'New yesterday item', new_user_standup_yesterday_item_path(current_user, standup), remote: true %>
 	
 	  <h3>Today items:</h3>
-	  <% standup.today_items.each do |today_item| %>
-		  <p>- <%= today_item.item %></p>
-	  <% end %>
+	  <div class="today-item-index">
+	    <% standup.today_items.each do |today_item| %>
+			<div id="today_item_content">- 
+			  <%= today_item.item %>
+			  <%= link_to 'Edit', edit_user_standup_today_item_path(current_user, standup, today_item), remote: true %> 
+			  <%= link_to 'Delete', user_standup_today_item_delete_path(current_user, standup, today_item), remote: true %>
+			</div>
+	    <% end %>
+	  </div>
+	  
+	  <div id="today-item-modal" class="modal fade">
+		<div class="modal-dialog">
+		  <div id="inner-today-item-modal" class="modal-content"></div>
+		</div>
+	  </div>
+	  
+	  <%= link_to 'New today item', new_user_standup_today_item_path(current_user, standup), remote: true %><br>
 	  
 	<%= link_to 'Edit', edit_user_standup_path(current_user, standup), remote: true %>
 	<%= link_to 'Delete', user_standup_delete_path(current_user, standup), remote: true %>
