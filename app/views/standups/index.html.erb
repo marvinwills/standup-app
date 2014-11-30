@@ -2,13 +2,26 @@
 
 <%= image_tag current_user.avatar_url.to_s, size: "100x100" %>
 
+<% if current_user.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@article.errors.count, "error") %> prohibited
+      this standup from being created:</h2>
+    <ul>
+      <% current_user.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+  </div>
+<% end %>
+
+<%= link_to 'New Standup', user_standups_path(current_user), :method => :post, remote: true %><br>
+
     <div class="standup-index">
       <%= render "index" %>
     </div>
 
 <br>
 
-<%= link_to 'New Standup', user_standups_path(current_user), :method => :post, remote: true %><br>
 Signed in as <%= current_user.username %>. Not you?
 <%= link_to "Edit account", edit_user_registration_path %><br>
 <%= link_to "Sign out", destroy_user_session_path, :method => :delete %><br>
