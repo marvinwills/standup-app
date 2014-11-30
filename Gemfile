@@ -51,10 +51,15 @@ gem 'rails-js'
 
 group :test do
 	gem "rspec"
-	gem "rspec-rails"
+	gem 'rspec-activemodel-mocks'
 	gem "webrat"
 	gem "cucumber"
-	gem 'cucumber-rails'
+	gem 'cucumber-rails', '~>1.4.0', require: false
+	gem "database_cleaner"
+end
+
+group :development, :test do
+	gem "rspec-rails"
 end
 
 
