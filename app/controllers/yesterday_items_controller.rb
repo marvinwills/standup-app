@@ -32,6 +32,13 @@ class YesterdayItemsController < ApplicationController
 		@yesterday_item.update(yesterday_item_params)
 	end
 	
+	def delete
+		user = User.find(params[:user_id])
+		standups = user.standups
+		@standup = standups.find(params[:standup_id])
+		@yesterday_item = @standup.yesterday_items.find(params[:yesterday_item_id])
+	end
+	
 	def destroy
 		user = User.find(params[:user_id])
 		@standups = user.standups

@@ -11,8 +11,7 @@
 		  <div id="yesterday_item_content">- 
 		    <%= yesterday_item.item %>
 		    <%= link_to 'Edit', edit_user_standup_yesterday_item_path(current_user, standup, yesterday_item), remote: true %> 
-		    <%= link_to 'Delete', user_standup_yesterday_item_path(current_user, standup, yesterday_item), method: :delete,
-				data: { confirm: 'Are you sure?' }, remote: true %>
+		    <%= link_to 'Delete', user_standup_yesterday_item_delete_path(current_user, standup, yesterday_item), remote: true %>
 		  </div>
         <% end %>
       </div>
@@ -24,8 +23,6 @@
 	  </div>
 	  
 	  <%= link_to 'New yesterday item', new_user_standup_yesterday_item_path(current_user, standup), remote: true %>
-	  
-	  <ul class="today-item-errors"></ul>
 	
 	  <h4>Today items:</h4>
 	  <div class="today-item-index">
@@ -33,8 +30,7 @@
 			<div id="today_item_content">- 
 			  <%= today_item.item %>
 			  <%= link_to 'Edit', edit_user_standup_today_item_path(current_user, standup, today_item), remote: true %> 
-			  <%= link_to 'Delete', user_standup_today_item_path(current_user, standup, today_item), method: :delete,
-				data: { confirm: 'Are you sure?' }, remote: true %>
+			  <%= link_to 'Delete', user_standup_today_item_delete_path(current_user, standup, today_item), remote: true %>
 			</div>
 	    <% end %>
 	  </div>
