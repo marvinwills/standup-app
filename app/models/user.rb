@@ -6,5 +6,7 @@ class User < ActiveRecord::Base
 		 
   has_many :standups, -> { order "created_at DESC" }, dependent: :destroy
   mount_uploader :avatar, AvatarUploader
+  
+  validates :username, presence: true, length: { minimum: 5 }
 
 end
