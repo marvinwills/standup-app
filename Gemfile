@@ -40,11 +40,9 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin]
 
 gem 'devise'
 gem 'carrierwave'
-gem 'mini_magick'
 
 gem 'twitter-bootstrap-rails' #, :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
 
-gem 'cocoon'
 gem 'execjs'
 gem 'commonjs'
 

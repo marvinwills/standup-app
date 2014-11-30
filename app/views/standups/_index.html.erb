@@ -1,8 +1,8 @@
 <% @standups.each do |standup| %>
 
-	  <h2><%= standup.created_at.to_date %></h2>
+	  <div><strong><%= standup.created_at.to_date %></strong> | <%= link_to 'Delete', user_standup_delete_path(current_user, standup), remote: true %></div> 
 
-	  <h3>Yesterday items:</h3>
+	  <h4>Yesterday items:</h4>
 	  <div class="yesterday-item-index">
         <% standup.yesterday_items.each do |yesterday_item| %> 
 		  <div id="yesterday_item_content">- 
@@ -21,7 +21,7 @@
 	  
 	  <%= link_to 'New yesterday item', new_user_standup_yesterday_item_path(current_user, standup), remote: true %>
 	
-	  <h3>Today items:</h3>
+	  <h4>Today items:</h4>
 	  <div class="today-item-index">
 	    <% standup.today_items.each do |today_item| %>
 			<div id="today_item_content">- 
@@ -39,8 +39,5 @@
 	  </div>
 	  
 	  <%= link_to 'New today item', new_user_standup_today_item_path(current_user, standup), remote: true %><br>
-	  
-	<%= link_to 'Edit', edit_user_standup_path(current_user, standup), remote: true %>
-	<%= link_to 'Delete', user_standup_delete_path(current_user, standup), remote: true %>
 
 <% end %>

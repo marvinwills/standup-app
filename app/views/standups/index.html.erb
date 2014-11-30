@@ -1,4 +1,4 @@
-<h1><%= current_user.username %>  Standups: </h1>
+<h2><%= current_user.username %>'s  Standups: </h2>
 
 <%= image_tag current_user.avatar_url.to_s, size: "100x100" %>
 
@@ -8,7 +8,7 @@
 
 <br>
 
-<%= link_to 'New Standup', new_user_standup_path(current_user), remote: true %><br>
+<%= link_to 'New Standup', user_standups_path(current_user), :method => :post, remote: true %><br>
 Signed in as <%= current_user.username %>. Not you?
 <%= link_to "Edit account", edit_user_registration_path %><br>
 <%= link_to "Sign out", destroy_user_session_path, :method => :delete %><br>
