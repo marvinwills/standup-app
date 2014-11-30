@@ -43,7 +43,6 @@ ActiveRecord::Schema.define(version: 20141127095601) do
   add_index "standups", ["user_id"], name: "index_standups_on_user_id", using: :btree
 
   create_table "today_items", force: true do |t|
-    t.integer  "number"
     t.text     "item"
     t.integer  "standup_id"
     t.datetime "created_at"
@@ -73,7 +72,6 @@ ActiveRecord::Schema.define(version: 20141127095601) do
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
   create_table "yesterday_items", force: true do |t|
-    t.integer  "number"
     t.text     "item"
     t.integer  "standup_id"
     t.datetime "created_at"
