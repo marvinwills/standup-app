@@ -13,6 +13,7 @@ class StandupsController < ApplicationController
 		@standup = @standups.build
 
 		@standup.save
+		redirect_to user_standups_path(user)
 	end
 	
 	def destroy
