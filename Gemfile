@@ -49,3 +49,13 @@ gem 'commonjs'
 
 gem 'rails-js'
 
+group :test do
+	gem "rspec"
+	gem "rspec-rails"
+	gem "webrat"
+	gem "cucumber"
+	gem 'cucumber-rails'
+end
+
+
+
