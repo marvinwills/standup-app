@@ -1,7 +1,7 @@
-$("ul.errors").html("")
+$("ul.today-item-errors").html("")
 <% if @today_item.errors.any? %>
   <% @today_item.errors.full_messages.each do |message| %>
-    $("ul.errors").append($("<li />").html("<%= message.html_safe %>"))
+    $("ul.today-item-errors").append($("<li />").html("<%= message.html_safe %>"))
   <% end %>
 <% else %>
   $(".today-item-index").html("<%= escape_javascript(render "index") %>")

@@ -1,7 +1,7 @@
-$("ul.errors").html("")
-<% if @standup.errors.any? %>
-  <% @standup.errors.full_messages.each do |message| %>
-    $("ul.errors").append($("<li />").html("<%= message.html_safe %>"))
+$("ul.standup-errors").html("")
+<% if current_user.errors.any? %>
+  <% current_user.errors.full_messages.each do |message| %>
+    $("ul.standup-errors").append($("<li />").html("<%= message.html_safe %>"))
   <% end %>
 <% else %>
   $(".standup-index").html("<%= escape_javascript(render 'index') %>")
