@@ -4,6 +4,6 @@ $("ul.yesterday-item-errors").html("")
     $("ul.yesterday-item-errors").append($("<li />").html("<%= message.html_safe %>"))
   <% end %>
 <% else %>
-  $(".yesterday-item-index").html("<%= escape_javascript(render "index") %>")
-  $("#yesterday-item-modal").modal("hide")
+  $(".standup-index").html("<%= escape_javascript(render :partial => "/standups/index") %>")
+  $("#standup-modal").modal("hide")
 <% end %>

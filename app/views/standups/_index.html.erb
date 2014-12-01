@@ -1,5 +1,6 @@
 <% @standups.each do |standup| %>
-
+	
+	<div>
 	  <div><strong><%= standup.created_at.to_date %></strong> | <%= link_to 'Delete', user_standup_path(current_user, standup), 
 																	method: :delete, data: { confirm: 'Are you sure?' }, remote: true %></div>
 
@@ -16,12 +17,6 @@
         <% end %>
       </div>
 	  
-	  <div id="yesterday-item-modal" class="modal fade">
-		<div class="modal-dialog">
-		  <div id="inner-yesterday-item-modal" class="modal-content"></div>
-		</div>
-	  </div>
-	  
 	  <%= link_to 'New yesterday item', new_user_standup_yesterday_item_path(current_user, standup), remote: true %>
 	
 	  <h4>Today items:</h4>
@@ -35,12 +30,6 @@
 	    <% end %>
 	  </div>
 	  
-	  <div id="today-item-modal" class="modal fade">
-		<div class="modal-dialog">
-		  <div id="inner-today-item-modal" class="modal-content"></div>
-		</div>
-	  </div>
-	  
 	  <%= link_to 'New today item', new_user_standup_today_item_path(current_user, standup), remote: true %><br>
-
+	</div>
 <% end %>
