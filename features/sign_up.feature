@@ -13,3 +13,13 @@ Feature: Sign-up
     And I fill "test1234567890" as Password confirmation
     And I click "Sign up" button
     Then I should notice message "Welcome! You have signed up successfully."
+
+
+  Scenario: I sign up with an invalid username (shorter than 5 characters)
+    When I click "Sign up" 
+    And I fill "test" as Username
+    And I fill "test@gmail.com" as Email
+    And I fill "test1234567890" as Password
+    And I fill "test1234567890" as Password confirmation
+    And I click "Sign up" button
+    Then I should notice message "Username is too short (minimum is 5 characters)"
