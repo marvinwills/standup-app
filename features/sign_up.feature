@@ -23,3 +23,21 @@ Feature: Sign-up
     And I fill "test1234567890" as Password confirmation
     And I click "Sign up" button
     Then I should notice message "Username is too short (minimum is 5 characters)"
+
+  Scenario: I sign up with an invalid email
+    When I click "Sign up" 
+    And I fill "testusername" as Username
+    And I fill "invalidemail" as Email
+    And I fill "test1234567890" as Password
+    And I fill "test1234567890" as Password confirmation
+    And I click "Sign up" button
+    Then I should notice message "Email is invalid"
+
+  Scenario: I sign up with an invalid password
+    When I click "Sign up" 
+    And I fill "testusername" as Username
+    And I fill "test@gmail.com" as Email
+    And I fill "123" as Password
+    And I fill "123" as Password confirmation
+    And I click "Sign up" button
+    Then I should notice message "Password is too short (minimum is 8 characters)"
