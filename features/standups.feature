@@ -19,6 +19,14 @@ Feature: Standups
     Then I should notice message "Example item"
 
   @javascript
+  Scenario: I unsuccessfully add a new yesterday item
+    Given I have created a new standup
+    When I click "New yesterday item"
+    And I fill "Bad" as Item
+    And I click "Create Yesterday item" button
+    Then I should notice message "Item is too short (minimum is 5 characters)"
+
+  @javascript
   Scenario: I add a new today item
     Given I have created a new standup
     When I click "New today item"
