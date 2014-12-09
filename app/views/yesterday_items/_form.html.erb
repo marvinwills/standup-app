@@ -4,7 +4,7 @@
 <div class="modal-body">
 	<%= form_for [@user, @standup, @yesterday_item], remote: true do |f| %>
 		<ul class="yesterday-item-errors"></ul>
-		<%= f.text_field :item %>
+		<%= f.text_field :item, :id => "Item" %>
 		<%= f.submit %>
 	<% end %>
 </div>
