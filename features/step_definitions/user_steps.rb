@@ -33,3 +33,7 @@ end
 Then(/^I should notice message "(.*?)"$/) do |arg1|
    page.should have_content(arg1)
 end
+
+Given(/^I am registered$/) do
+  User.create({username: "testusername", email: "test@gmail.com", password: "test1234567890"})
+end
