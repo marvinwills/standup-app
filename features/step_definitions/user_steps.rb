@@ -35,5 +35,13 @@ Then(/^I should notice message "(.*?)"$/) do |arg1|
 end
 
 Given(/^I am registered$/) do
-  User.create({username: "testusername", email: "test@gmail.com", password: "test1234567890"})
+  @password = "test1234567890"
+  @user = User.create!({username: "testusername", email: "test@gmail.com", password: @password})
+end
+
+Given(/^I am logged in$/) do
+  visit '/accounts/sign_in'
+  fill_in "Email", :with => @user[:email]
+  fill_in "Password", :with => @password
+  click_button "Log in"
 end
