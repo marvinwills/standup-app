@@ -41,3 +41,20 @@ Feature: Sign-up
     And I fill "123" as Password confirmation
     And I click "Sign up" button
     Then I should notice message "Password is too short (minimum is 8 characters)"
+
+  Scenario: I sign up without a password confirmation
+    When I click "Sign up" 
+    And I fill "testusername" as Username
+    And I fill "test@gmail.com" as Email
+    And I fill "12345678" as Password
+    And I click "Sign up" button
+    Then I should notice message "Password confirmation doesn't match Password"
+
+  Scenario: I sign up with a missmathing password confirmation
+    When I click "Sign up" 
+    And I fill "testusername" as Username
+    And I fill "test@gmail.com" as Email
+    And I fill "12345678" as Password
+    And I fill "12345679" as Password confirmation
+    And I click "Sign up" button
+    Then I should notice message "Password confirmation doesn't match Password"
