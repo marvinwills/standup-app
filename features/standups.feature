@@ -22,39 +22,6 @@ Feature: Standups
     Then I should notice message "Item is too short (minimum is 5 characters)"
 
   @javascript
-  Scenario: I edit a yesterday item
-    Given I have created a new standup
-    And I have created a new yesterday item
-    When I click "Edit"
-    And I fill "" as "Item"
-    And I fill "Edited item" as "Item"
-    And I click "Update Yesterday item" button
-    Then I should notice message "Edited item"
-
-  @javascript
-  Scenario: I cancel editing a yesterday item
-    Given I have created a new standup
-    And I have created a new yesterday item
-    When I click "Edit"
-    And I fill "Edited item" as "Item"
-    And I click "Cancel"
-    Then I should notice message "To be edited"
-
-  @javascript
-  Scenario: I delete a yesterday item
-    Given I have created a new standup
-    And I have created a new yesterday item
-    When I delete a yesterday item
-    Then I shouldn't notice message "To be edited"
-
-  @javascript
-  Scenario: I cancel deleting a yesterday item
-    Given I have created a new standup
-    And I have created a new yesterday item
-    When I cancel deleting a yesterday item
-    Then I should notice message "To be edited"
-
-  @javascript
   Scenario: I add a new today item
     Given I have created a new standup
     When I click "New today item"

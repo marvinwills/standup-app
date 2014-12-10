@@ -2,11 +2,11 @@
   <h3>Item</h3>
 </div>
 <div class="modal-body">
-	<%= form_for [@user, @standup, @today_item], remote: true do |f| %>
-		<ul class="today-item-errors"></ul>
-		<%= f.text_field :item, :id => "Item" %>
-		<%= f.submit %>
-	<% end %>
+  <%= form_for [@user, @standup, @today_item], remote: true do |f| %>
+    <ul class="today-item-errors"></ul>
+    <%= f.text_field :item, :id => "Item" %>
+    <%= f.submit %>
+  <% end %>
 </div>
 <div class="modal-footer">
   <%= link_to "Cancel", "#", class: "btn", data: { dismiss: "modal" } %>
