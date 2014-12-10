@@ -52,11 +52,12 @@ gem 'rails-js'
 group :test do
 	gem "rspec"
 	gem 'rspec-activemodel-mocks'
-	gem "webrat"
 	gem "cucumber"
 	gem 'cucumber-rails', '~>1.4.0', require: false
 	gem "database_cleaner"
 	gem "selenium-webdriver"
+	gem "byebug"
+	gem "capybara"
 end
 
 group :development, :test do

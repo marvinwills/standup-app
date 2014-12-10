@@ -1,8 +1,7 @@
 <% @standups.each do |standup| %>
 	
 	<div>
-	  <div><strong><%= standup.created_at.to_date %></strong> | <%= link_to 'Delete', user_standup_path(current_user, standup), 
-																	method: :delete, data: { confirm: 'Are you sure?' }, remote: true %></div>
+	  <div><strong><%= standup.created_at.to_date %></strong></div>
 
 	  <ul class="yesterday-item-errors"></ul>
 																	

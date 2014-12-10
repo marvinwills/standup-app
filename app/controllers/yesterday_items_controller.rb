@@ -1,7 +1,7 @@
 class YesterdayItemsController < ApplicationController
 
 	respond_to :html, :js
-	
+
 	def new
 		@user = User.find(params[:user_id])
 		@standup = @user.standups.find(params[:standup_id])
