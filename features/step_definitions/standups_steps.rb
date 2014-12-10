@@ -14,12 +14,10 @@ end
 
 When(/^I delete a yesterday item$/) do
   click_on "Delete"
-  save_and_open_page
-  click_on "Yes" 
+  click_on "Yes"
 end
 
 When(/^I cancel deleting a yesterday item$/) do
   click_on "Delete"
-  save_and_open_page
   click_on "No"
 end
