@@ -1,35 +1,34 @@
 <% @standups.each do |standup| %>
-	
-	<div>
-	  <div><strong><%= standup.created_at.to_date %></strong> | <%= link_to 'Delete', user_standup_path(current_user, standup), 
-																	method: :delete, data: { confirm: 'Are you sure?' }, remote: true %></div>
 
-	  <ul class="yesterday-item-errors"></ul>
-																	
-	  <h4>Yesterday items:</h4>
-	  <div class="yesterday-item-index">
+  <div>
+    <div><strong><%= standup.created_at.to_date %></strong></div>
+
+    <ul class="yesterday-item-errors"></ul>
+
+    <h4>Yesterday items:</h4>
+    <div class="yesterday-item-index">
         <% standup.yesterday_items.each do |yesterday_item| %> 
-		  <div id="yesterday_item_content">- 
-		    <%= yesterday_item.item %>
-		    <%= link_to 'Edit', edit_user_standup_yesterday_item_path(current_user, standup, yesterday_item), remote: true %> 
-		    <%= link_to 'Delete', user_standup_yesterday_item_delete_path(current_user, standup, yesterday_item), remote: true %>
-		  </div>
+      <div id="yesterday_item_content">- 
+        <%= yesterday_item.item %>
+        <%= link_to 'Edit', edit_user_standup_yesterday_item_path(current_user, standup, yesterday_item), remote: true %> 
+        <%= link_to 'Delete', user_standup_yesterday_item_delete_path(current_user, standup, yesterday_item), remote: true %>
+      </div>
         <% end %>
       </div>
-	  
-	  <%= link_to 'New yesterday item', new_user_standup_yesterday_item_path(current_user, standup), remote: true %>
-	
-	  <h4>Today items:</h4>
-	  <div class="today-item-index">
-	    <% standup.today_items.each do |today_item| %>
-			<div id="today_item_content">- 
-			  <%= today_item.item %>
-			  <%= link_to 'Edit', edit_user_standup_today_item_path(current_user, standup, today_item), remote: true %> 
-			  <%= link_to 'Delete', user_standup_today_item_delete_path(current_user, standup, today_item), remote: true %>
-			</div>
-	    <% end %>
-	  </div>
-	  
-	  <%= link_to 'New today item', new_user_standup_today_item_path(current_user, standup), remote: true %><br>
-	</div>
+
+    <%= link_to 'New yesterday item', new_user_standup_yesterday_item_path(current_user, standup), remote: true %>
+
+    <h4>Today items:</h4>
+    <div class="today-item-index">
+      <% standup.today_items.each do |today_item| %>
+      <div id="today_item_content">- 
+        <%= today_item.item %>
+        <%= link_to 'Edit', edit_user_standup_today_item_path(current_user, standup, today_item), remote: true %> 
+        <%= link_to 'Delete', user_standup_today_item_delete_path(current_user, standup, today_item), remote: true %>
+      </div>
+      <% end %>
+    </div>
+    
+    <%= link_to 'New today item', new_user_standup_today_item_path(current_user, standup), remote: true %><br>
+  </div>
 <% end %>
