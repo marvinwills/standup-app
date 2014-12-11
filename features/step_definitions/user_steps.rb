@@ -30,3 +30,11 @@ Given(/^I am logged in$/) do
   fill_in "Password", :with => @password
   click_button "Log in"
 end
+
+When(/^I provide my password$/) do
+  fill_in "Current password", :with => @password
+end
+
+When(/^I accept the confirmation$/) do
+  page.driver.browser.switch_to.alert.accept
+end
