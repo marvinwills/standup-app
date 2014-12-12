@@ -1,5 +1,7 @@
 class Item < ActiveRecord::Base
   belongs_to :standup
-  validates :content, presence: true, length: { minimum: 5 }
+  scope :today_items, -> { where(:today =>  true)}
+  scope :yesterday_items, -> { where(:today =>  false)}
+  validates :content, :presence => true, length: { :minimum => 5 }
   #validates :today, presence: true
 end
