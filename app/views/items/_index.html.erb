@@ -1,0 +1,7 @@
+<% @standup.today_items.each do |item| %> 
+  <div id="item_content">- 
+    <%= item.content %> 
+    <%= link_to 'Edit', edit_user_standup_item_path(current_user, @standup, item), remote: true %> 
+    <%= link_to 'Delete', user_standup_item_delete_path(current_user, @standup, item), remote: true %>
+  </div>
+<% end %>

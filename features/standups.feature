@@ -10,7 +10,7 @@ Feature: Standups
     Given I have created a new standup
     When I click "New yesterday item"
     And I fill "Example item" as "Item"
-    And I click "Create Yesterday item" button
+    And I click "Create Item" button
     Then I should notice message "Example item"
 
   @javascript
@@ -18,15 +18,15 @@ Feature: Standups
     Given I have created a new standup
     When I click "New yesterday item"
     And I fill "Bad" as "Item"
-    And I click "Create Yesterday item" button
-    Then I should notice message "Item is too short (minimum is 5 characters)"
+    And I click "Create Item" button
+    Then I should notice message "Content is too short (minimum is 5 characters)"
 
   @javascript
   Scenario: I add a new today item
     Given I have created a new standup
     When I click "New today item"
     And I fill "Example item" as "Item"
-    And I click "Create Today item" button
+    And I click "Create Item" button
     Then I should notice message "Example item"
 
   @javascript
@@ -34,5 +34,5 @@ Feature: Standups
     Given I have created a new standup
     When I click "New today item"
     And I fill "Bad" as "Item"
-    And I click "Create Today item" button
-    Then I should notice message "Item is too short (minimum is 5 characters)"
+    And I click "Create Item" button
+    Then I should notice message "Content is too short (minimum is 5 characters)"

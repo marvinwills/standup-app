@@ -6,6 +6,6 @@
 Are you sure you wish to delete item?
 </div>
 <div class="modal-footer">
-  <%= link_to "Yes", user_standup_today_item_path(current_user, @standup, @today_item), method: :delete, remote: true, class: "btn btn-danger" %>
+  <%= link_to "Yes", user_standup_item_path(current_user, @standup, @item), method: :delete, remote: true, class: "btn btn-danger" %>
   <%= link_to "No", "#", class: "btn", data: { dismiss: "modal" } %>
 </div>
