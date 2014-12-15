@@ -2,24 +2,21 @@ class StandupsController < ApplicationController
 
   respond_to :html, :js
 
+  before_action :authenticate_user!
+
   def index
-    user = User.find(params[:user_id])
-    @standups = user.standups
+    @standups = current_user.standups
   end
 
   def create
-    user = User.find(params[:user_id])
-    @standups = user.standups
-    @standup = @standups.build
+    @standups = current_user.standups
+    standup = @standups.build
 
-    @standup.save
+    standup.save
   end
 
   def destroy
-    user = User.find(params[:user_id])
-    @standups = user.standups
-    @standup = @standups.find(params[:id])
-    @standup.destroy
+    standup = current_user.standups.find(params[:id])
+    standup.destroy
   end
-
 end

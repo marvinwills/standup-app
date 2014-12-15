@@ -1,6 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Standup, :type => :model do
+	
       it "limits standup creation to once a day" do
 	
 	#seutp
