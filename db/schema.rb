@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141127095601) do
+ActiveRecord::Schema.define(version: 20141212151202) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,6 +34,16 @@ ActiveRecord::Schema.define(version: 20141127095601) do
   add_index "installs", ["email"], name: "index_installs_on_email", unique: true, using: :btree
   add_index "installs", ["reset_password_token"], name: "index_installs_on_reset_password_token", unique: true, using: :btree
 
+  create_table "items", force: true do |t|
+    t.text     "content"
+    t.boolean  "today"
+    t.integer  "standup_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "items", ["standup_id"], name: "index_items_on_standup_id", using: :btree
+
   create_table "standups", force: true do |t|
     t.datetime "created_at"
     t.integer  "user_id"
@@ -41,15 +51,6 @@ ActiveRecord::Schema.define(version: 20141127095601) do
   end
 
   add_index "standups", ["user_id"], name: "index_standups_on_user_id", using: :btree
-
-  create_table "today_items", force: true do |t|
-    t.text     "item"
-    t.integer  "standup_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "today_items", ["standup_id"], name: "index_today_items_on_standup_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -70,14 +71,5 @@ ActiveRecord::Schema.define(version: 20141127095601) do
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
-
-  create_table "yesterday_items", force: true do |t|
-    t.text     "item"
-    t.integer  "standup_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "yesterday_items", ["standup_id"], name: "index_yesterday_items_on_standup_id", using: :btree
 
 end

@@ -36,33 +36,30 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 # gem 'debugger', group: [:development, :test]
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: [:mingw, :mswin]
+gem "tzinfo-data", platforms: [:mingw, :mswin]
 
-gem 'devise'
-gem 'carrierwave'
-gem 'rails_12factor'
+gem "devise"
+gem "carrierwave"
+gem "rails_12factor"
 
-gem 'twitter-bootstrap-rails' #, :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
+gem "twitter-bootstrap-rails" #, :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
 
-gem 'execjs'
-gem 'commonjs'
+gem "execjs"
+gem "commonjs"
 
-gem 'rails-js'
+gem "rails-js"
 
 group :test do
   gem "rspec"
-  gem 'rspec-activemodel-mocks'
+  gem "rspec-activemodel-mocks"
   gem "cucumber"
-  gem 'cucumber-rails', '~>1.4.0', require: false
+  gem "cucumber-rails", "~>1.4.0", require: false
   gem "database_cleaner"
   gem "selenium-webdriver"
-  gem "byebug"
   gem "capybara"
 end
 
 group :development, :test do
   gem "rspec-rails"
+  gem "byebug"
 end
-
-
-

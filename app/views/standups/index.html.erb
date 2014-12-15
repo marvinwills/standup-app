@@ -3,11 +3,14 @@
 
 <ul class="standup-errors"></ul>
 
-<div><%= link_to 'New Standup', user_standups_path(current_user), :method => :post, remote: true %><br></div>
+<div>
+  <%= link_to 'New Standup', user_standups_path(current_user), :method => :post, :remote => true %>
+  <br>
+</div>
 
-    <div class="standup-index">
-      <%= render "index" %>
-    </div>
+<div class="standup-index">
+  <%= render "index" %>
+</div>
 
 <br>
 
@@ -19,6 +22,6 @@ Signed in as <%= current_user.username %>. Not you?
   <div class="modal-dialog">
 
     <div id="inner-standup-modal" class="modal-content"></div>
-  
+
   </div>
 </div>
