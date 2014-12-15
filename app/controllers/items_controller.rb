@@ -4,14 +4,6 @@ class ItemsController < ApplicationController
 
   before_action :find_item, :only => [:edit, :update, :destroy]
 
-  def find_item
-    @user = User.find(params[:user_id])
-    @standups = @user.standups
-    @standup = @standups.find(params[:standup_id])
-    @items = @standup.items
-    @item = @items.find(params[:id])
-  end
-
   def new
     @user = User.find(params[:user_id])
     @standup = @user.standups.find(params[:standup_id])
@@ -20,6 +12,7 @@ class ItemsController < ApplicationController
   end
 
   def create
+    #byebug
     user = User.find(params[:user_id])
     @standups = user.standups
     @standup = @standups.find(params[:standup_id])
@@ -35,7 +28,7 @@ class ItemsController < ApplicationController
     @item.update(item_params)
   end
 
-  def delete
+  def confirm_destroy
     user = User.find(params[:user_id])
     standups = user.standups
     @standup = standups.find(params[:standup_id])
@@ -46,9 +39,18 @@ class ItemsController < ApplicationController
     @item.destroy
   end
 
-  private 
+  private
+
   def item_params
     params.require(:item).permit(:content)
+  end
+
+    def find_item
+    @user = User.find(params[:user_id])
+    @standups = @user.standups
+    @standup = @standups.find(params[:standup_id])
+    @items = @standup.items
+    @item = @items.find(params[:id])
   end
 
 end

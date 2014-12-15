@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :users, :path => 'accounts', :controllers => { registrations: 'registrations' }
-  #devise_for :installs
+  devise_for :users, :path => "accounts", :controllers => { registrations: "registrations" }
   get 'welcome/index'
 
   # The priority is based upon order of creation: first created -> highest priority.
@@ -21,7 +20,7 @@ Rails.application.routes.draw do
   resources :users do
     resources :standups do
       resources :items do
-        get "delete"
+        get "confirm_destroy"
       end
     end
   end

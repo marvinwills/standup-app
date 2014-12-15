@@ -9,7 +9,7 @@
       <div id="yesterday_item_content">- 
         <%= yesterday_item.content %>
         <%= link_to "Edit", edit_user_standup_item_path(current_user, standup, yesterday_item), :remote => true %> 
-        <%= link_to "Delete", user_standup_item_delete_path(current_user, standup, yesterday_item), 
+        <%= link_to "Delete", user_standup_item_confirm_destroy_path(current_user, standup, yesterday_item), 
         :remote => true %>
       </div>
         <% end %>
@@ -23,7 +23,7 @@
       <div id="today_item_content">- 
         <%= today_item.content %>
         <%= link_to "Edit", edit_user_standup_item_path(current_user, standup, today_item), :remote => true %> 
-        <%= link_to "Delete", user_standup_item_delete_path(current_user, standup, today_item), :remote => true %>
+        <%= link_to "Delete", user_standup_item_confirm_destroy_path(current_user, standup, today_item), :remote => true %>
       </div>
       <% end %>
     </div>
