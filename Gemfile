@@ -50,6 +50,7 @@ gem "commonjs"
 gem "rails-js"
 
 group :test do
+  gem "timecop"
   gem "shoulda"
   gem "rspec-activemodel-mocks"
   gem "cucumber"
