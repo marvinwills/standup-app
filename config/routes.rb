@@ -17,11 +17,11 @@ Rails.application.routes.draw do
   # Example resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
   
-  resources :users do
-    resources :standups do
-      resources :items do
-        get "confirm_destroy"
-      end
+  resources :users
+
+  resources :standups, :only => [:index, :create, :destroy] do
+    resources :items do
+      get "confirm_destroy"
     end
   end
   

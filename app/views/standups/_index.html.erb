@@ -8,26 +8,26 @@
         <% standup.items.yesterday_items.each do |yesterday_item| %> 
       <div id="yesterday_item_content">- 
         <%= yesterday_item.content %>
-        <%= link_to "Edit", edit_user_standup_item_path(current_user, standup, yesterday_item), :remote => true %> 
-        <%= link_to "Delete", user_standup_item_confirm_destroy_path(current_user, standup, yesterday_item), 
+        <%= link_to "Edit", edit_standup_item_path(standup, yesterday_item), :remote => true %> 
+        <%= link_to "Delete", standup_item_confirm_destroy_path(standup, yesterday_item), 
         :remote => true %>
       </div>
         <% end %>
       </div>
 
-    <%= link_to "New yesterday item", new_user_standup_item_path(current_user, standup, :type => "yesterday"), :remote => true %>
+    <%= link_to "New yesterday item", new_standup_item_path(standup, :type => "yesterday"), :remote => true %>
 
     <h4>Today items:</h4>
     <div class="today-item-index">
       <% standup.items.today_items.each do |today_item| %>
       <div id="today_item_content">- 
         <%= today_item.content %>
-        <%= link_to "Edit", edit_user_standup_item_path(current_user, standup, today_item), :remote => true %> 
-        <%= link_to "Delete", user_standup_item_confirm_destroy_path(current_user, standup, today_item), :remote => true %>
+        <%= link_to "Edit", edit_standup_item_path(standup, today_item), :remote => true %> 
+        <%= link_to "Delete", standup_item_confirm_destroy_path(standup, today_item), :remote => true %>
       </div>
       <% end %>
     </div>
     
-    <%= link_to "New today item", new_user_standup_item_path(current_user, standup, :type => "today"), :remote => true %><br>
+    <%= link_to "New today item", new_standup_item_path(standup, :type => "today"), :remote => true %><br>
   </div>
 <% end %>
