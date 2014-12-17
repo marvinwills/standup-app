@@ -4,13 +4,18 @@ class Standup < ActiveRecord::Base
   belongs_to :user
 
   validates :user, :presence => true
-  validate :date_scope, :on => :create
+  validate :creation_limit, :on => :create
 
   private
 
-  def date_scope
-    if Standup.where("user_id = ? AND DATE(created_at) = DATE(?)", self.user_id, Time.now).count > 0
+  def creation_limit
+    if has_standup_for_today?
       errors.add(:user_id, "Can only create once a day")
     end
   end
+
+  def has_standup_for_today?
+    Standup.where("user_id = ? AND DATE(created_at) = DATE(?)", self.user_id, Time.now).any?
+  end
+
 end
