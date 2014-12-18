@@ -9,13 +9,13 @@ class Standup < ActiveRecord::Base
   private
 
   def creation_limit
-    if has_standup_for_today?
-      errors.add(:user_id, "Can only create once a day")
+    if user_has_standup_for_today?
+      errors.add(:user, "Can only create once a day")
     end
   end
 
-  def has_standup_for_today?
-    Standup.where("user_id = ? AND DATE(created_at) = DATE(?)", self.user_id, Time.now).any?
+  def user_has_standup_for_today?
+    Standup.where("user_id = ? AND DATE(created_at) = ?", user_id, Date.today).any?
   end
 
 end
