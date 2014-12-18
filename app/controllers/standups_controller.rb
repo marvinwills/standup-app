@@ -14,9 +14,4 @@ class StandupsController < ApplicationController
 
     standup.save
   end
-
-  def destroy
-    standup = current_user.standups.find(params[:id])
-    standup.destroy
-  end
 end
