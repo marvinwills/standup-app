@@ -50,7 +50,8 @@ gem "commonjs"
 gem "rails-js"
 
 group :test do
-  gem "rspec"
+  gem "timecop"
+  gem "shoulda"
   gem "rspec-activemodel-mocks"
   gem "cucumber"
   gem "cucumber-rails", "~>1.4.0", require: false

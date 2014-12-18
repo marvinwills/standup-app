@@ -1,16 +1,21 @@
 class Standup < ActiveRecord::Base
 
   has_many :items, -> { order "created_at" }, :dependent => :destroy
-  accepts_nested_attributes_for :items, :reject_if => :all_blank, :allow_destroy => true
   belongs_to :user
 
-  validate :date_scope
+  validates :user, :presence => true
+  validate :creation_limit, :on => :create
 
   private
 
-  def date_scope
-    if Standup.where("user_id = ? AND DATE(created_at) = DATE(?)", self.user_id, Time.now).all.any?
-      errors.add(:user_id, "Can only create once a day")
+  def creation_limit
+    if user_has_standup_for_today?
+      errors.add(:user, "Can only create once a day")
     end
   end
+
+  def user_has_standup_for_today?
+    Standup.where("user_id = ? AND DATE(created_at) = ?", user_id, Date.today).any?
+  end
+
 end
