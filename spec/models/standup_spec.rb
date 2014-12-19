@@ -42,9 +42,9 @@ RSpec.describe Standup, :type => :model do
       @standup = @user.standups.create!
 
       @first_item = @standup.items.create!(:content => "An item", :today => true)
-      Timecop.travel(3.minute.from_now) { 
+      Timecop.travel(3.minute.from_now) do
         @second_item = @standup.items.create!(:content => "Another item", :today => true) 
-      }
+      end
       @third_item = @standup.items.create!(:content => "Yet another item", :today => false)
     end
 

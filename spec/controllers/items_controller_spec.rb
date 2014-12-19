@@ -14,9 +14,60 @@ RSpec.describe ItemsController, :type => :controller do
   end
 
   describe "GET new" do
+
+    before do
+      allow(@user).to receive_message_chain(:standups, :find).
+                   and_return(@standup)
+      allow(@standup).to receive_message_chain(:items, :build).
+                      and_return(@item)
+    end
+
+    it "returns http success" do
+      xhr :get, :new, :format => "js", :standup_id => 42
+      expect(response).to have_http_status(:success)
+    end
+
+    it "renders the edit template" do
+      xhr :get, :new, :format => "js", :standup_id => 42
+      expect(response).to render_template("new")
+    end
+
+    it "assigns @standup" do
+      xhr :get, :new, :format => "js", :standup_id => 42
+      expect(assigns(:standup)).to eql(@standup)
+    end
+
+    it "assigns @item" do
+      xhr :get, :new, :format => "js", :standup_id => 42
+      expect(assigns(:item)).to eql(@item)
+    end
+
+    context "today item" do
+      it "flashes true" do
+        xhr :get, :new, :format => "js", :standup_id => 42, :type => "today"
+        expect(flash[:today]).to match(true)
+      end
+    end
+
+    context "yesterday item" do
+      it "flashes false" do
+        xhr :get, :new, :format => "js", :standup_id => 42, :type => "yesterday"
+        expect(flash[:today]).to match(false)
+      end
+    end
+
   end
 
   describe "POST create" do
+
+    before do
+      allow(@user).to receive(:standups) { @standups }
+      allow(@standups).to receive(:find) { @standup }
+      allow(@standup).to receive_message_chain(:items, :build) { @item }
+      allow(@item).to receive(:today)
+      allow(@item).to receive(:save) { true }
+    end
+
   end
 
   describe "GET edit" do
@@ -51,9 +102,74 @@ RSpec.describe ItemsController, :type => :controller do
   end
 
   describe "POST update" do
+
+    it do 
+      is_expected.to permit(:content).for(:update, 
+          :params => { :item => { :content => "Some content" }, 
+          :format => "js", :standup_id => 42, :id => 42 } )
+    end
+
+    before do
+      allow(@user).to receive(:standups) { @standups }
+      allow(@standups).to receive(:find) { @standup }
+      allow(@standup).to receive_message_chain(:items, :find) { @item }
+      allow(@item).to receive(:update) { true }
+    end
+
+    it "returns http success" do
+      xhr :post, :update, :item => { :content => "Some content" },
+          :format => "js", :standup_id => 42, :id => 42
+      expect(response).to have_http_status(:success)
+    end
+
+    it "renders the edit template" do
+      xhr :post, :update, :item => { :content => "Some content" },
+          :format => "js", :standup_id => 42, :id => 42
+      expect(response).to render_template("update")
+    end
+
+    it "assigns @standups" do
+      xhr :post, :update, :item => { :content => "Some content" },
+          :format => "js", :standup_id => 42, :id => 42
+      expect(assigns(:standups)).to eql(@standups)
+    end
+
+    it "assigns @item" do
+      xhr :post, :update, :item => { :content => "Some content" },
+          :format => "js", :standup_id => 42, :id => 42
+      expect(assigns(:item)).to eql(@item)
+    end
   end
 
   describe "GET confirm_destroy" do
+
+    before do
+      allow(@user).to receive_message_chain(:standups, :find).
+                   and_return(@standup)
+      allow(@standup).to receive_message_chain(:items, :find).
+                      and_return(@item)
+    end
+
+    it "returns http success" do
+      xhr :get, :confirm_destroy, :format => "js", :standup_id => 42, :item_id => 42
+      expect(response).to have_http_status(:success)
+    end
+
+    it "renders the edit template" do
+      xhr :get, :confirm_destroy, :format => "js", :standup_id => 42, :item_id => 42
+      expect(response).to render_template("confirm_destroy")
+    end
+
+    it "assigns @standup" do
+      xhr :get, :confirm_destroy, :format => "js", :standup_id => 42, :item_id => 42
+      expect(assigns(:standup)).to eql(@standup)
+    end
+
+    it "assigns @item" do
+      xhr :get, :confirm_destroy, :format => "js", :standup_id => 42, :item_id => 42
+      expect(assigns(:item)).to eql(@item)
+    end
+
   end
 
   describe "DELETE destroy" do
