@@ -24,6 +24,8 @@ Rails.application.routes.draw do
       get "confirm_destroy"
     end
   end
+
+  resources :comments, :only => [:new, :create]
   
   # Example resource route with options:
   #   resources :products do
