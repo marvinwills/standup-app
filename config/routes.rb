@@ -19,7 +19,7 @@ Rails.application.routes.draw do
   
   resources :users
 
-  resources :standups, :only => [:index, :create, :destroy] do
+  resources :standups, :only => [:index, :create] do
     resources :items do
       get "confirm_destroy"
     end
