@@ -1,5 +1,5 @@
 <div>
-  <%= form_for @comment do |f| %>
+  <%= form_for [@standup, @comment] do |f| %>
     <%= f.text_area :text, :id => "Text" %>
     <%= f.submit %>
   <% end %>

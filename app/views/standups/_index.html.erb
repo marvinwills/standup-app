@@ -29,6 +29,6 @@
     </div>
     
     <%= link_to "New today item", new_standup_item_path(standup, :type => "today"), :remote => true %><br><br>
-    <%= link_to "Add comment", new_comment_path %>
+    <%= link_to "Add comment", new_standup_comment_path(standup) %>
   </div>
 <% end %>
