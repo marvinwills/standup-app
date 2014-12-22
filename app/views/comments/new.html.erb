@@ -1,1 +1,6 @@
-<div id="Text"></div>
+<div>
+  <%= form_for @comment do |f| %>
+    <%= f.text_area :text, :id => "Text" %>
+    <%= f.submit %>
+  <% end %>
+</div>

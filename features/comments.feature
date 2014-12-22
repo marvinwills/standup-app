@@ -10,5 +10,5 @@ Feature: Comments
     Given I have created a new standup
     When I click "Add comment"
     And I fill "Example comment text" as "Text"
-    And I click "Submit" button
+    And I click "Create Comment" button
     Then I should notice message "Example comment text"

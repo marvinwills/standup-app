@@ -1,6 +1,7 @@
 class Standup < ActiveRecord::Base
 
   has_many :items, -> { order "created_at" }, :dependent => :destroy
+  has_many :comments, :dependent => :destroy
   belongs_to :user
 
   validates :user, :presence => true
