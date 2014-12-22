@@ -28,6 +28,19 @@
       <% end %>
     </div>
     
-    <%= link_to "New today item", new_standup_item_path(standup, :type => "today"), :remote => true %><br>
+    <%= link_to "New today item", new_standup_item_path(standup, :type => "today"), :remote => true %><br><br>
+    <div id="add-comment<%= standup.id %>">
+      <%= link_to "Add comment", new_standup_comment_path(standup) %><br>
+    </div>
+    <% standup.comments.each do |comment| %>
+      <div id="comment<%= standup.id %><%= comment.id %>">
+        <% if comment.user == nil %>
+          <div id="comment-author"><%= comment.user.username %> says:</div>
+        <% else %>
+          <div id="comment-author">Some user says:</div>
+        <% end %>
+        <div id="comment-text"><%= comment.text %></div><br>
+      </div>
+    <% end %>
   </div>
 <% end %>
