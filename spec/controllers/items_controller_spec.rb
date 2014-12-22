@@ -67,11 +67,9 @@ RSpec.describe ItemsController, :type => :controller do
       allow(@item).to receive(:save) { true }
     end
 
-    it do 
-      is_expected.to permit(:content).for(:create, 
-          :params => { :item => { :content => "Some content" }, 
-          :format => "js", :standup_id => 42 } )
-    end
+    it { is_expected.to permit(:content).for(:create, 
+                                             :params => { :item => { :content => "Some content" }, 
+                                             :format => "js", :standup_id => 42 } ) }
 
     it "returns http success" do
       xhr :post, :create, :item => { :content => "Some content" },
@@ -139,11 +137,9 @@ RSpec.describe ItemsController, :type => :controller do
       allow(@item).to receive(:update) { true }
     end
 
-    it do 
-      is_expected.to permit(:content).for(:update, 
-          :params => { :item => { :content => "Some content" }, 
-          :format => "js", :standup_id => 42, :id => 42 } )
-    end
+    it { is_expected.to permit(:content).for(:update, 
+                                             :params => { :item => { :content => "Some content" }, 
+                                             :format => "js", :standup_id => 42, :id => 42 } ) }
 
     it "returns http success" do
       xhr :post, :update, :item => { :content => "Some content" },

@@ -20,7 +20,7 @@ RSpec.describe User, :type => :model do
   it { is_expected.to have_db_column(:updated_at).of_type(:datetime) }
 
   it { is_expected.to have_many(:standups).dependent(:destroy) }
-  it { is_expected.to have_many(:comments).dependent(:destroy) }
+  it { is_expected.to have_many(:comments) }
 
   it { is_expected.to validate_presence_of(:email) }
   it { is_expected.to validate_uniqueness_of(:email) }

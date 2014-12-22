@@ -1,25 +1,30 @@
 class CommentsController < ApplicationController
 
   before_action :authenticate_user!
+  before_action :find_standup
 
   def new
-    @standup = current_user.standups.find(params[:standup_id])
     @comment = @standup.comments.build
   end
 
   def create
-    standup = current_user.standups.find(params[:standup_id])
-    comment = standup.comments.build(comment_params)
-    comment.user = current_user
+    @comment = @standup.comments.build(comment_params)
+    @comment.user = current_user
 
-    comment.save
-
-    redirect_to standups_path
+    if @comment.save
+      redirect_to standups_path
+    else
+      render "new"
+    end
   end
 
   private
 
   def comment_params
     params.require(:comment).permit(:text)
+  end
+
+  def find_standup
+    @standup = current_user.standups.find(params[:standup_id])
   end
 end

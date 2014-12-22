@@ -1,6 +1,16 @@
 <div>
+  <h2>Write a comment: </h2>
+
   <%= form_for [@standup, @comment] do |f| %>
-    <%= f.text_area :text, :id => "Text" %>
+    <div id="errors">
+      <ul>
+        <% @comment.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+    <%= f.text_area :text, :id => "Text" %><br>
     <%= f.submit %>
+    <%= link_to "Cancel", standups_path %>
   <% end %>
 </div>

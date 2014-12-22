@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :standups, -> { order "created_at DESC" }, :dependent => :destroy
-  has_many :comments, :dependent => :destroy
+  has_many :comments
   mount_uploader :avatar, AvatarUploader
   
   validates :username, presence: true, length: { minimum: 5 }

@@ -37,8 +37,6 @@ RSpec.describe CommentsController, :type => :controller do
       expect(assigns(:comment)).to eql(@comment)
     end
 
-
-
   end
 
   describe "POST create" do
@@ -48,16 +46,43 @@ RSpec.describe CommentsController, :type => :controller do
       allow(@comment).to receive(:save) { true }
     end
 
-    it do 
-      is_expected.to permit(:text).for(:create, 
-          :params => { :comment => { :text => "Some text" }, 
-          :standup_id => 42 } )
-    end
+    it { is_expected.to permit(:text).for(:create, 
+                                          :params => { :comment => { :text => "Some text" }, 
+                                          :standup_id => 42 } ) }
 
-    it "redirects to standups" do
+    it "assigns @standup" do
       post :create, :comment => { :text => "Some text" }, :standup_id => 42
-      expect(response).to redirect_to(standups_path)
+      expect(assigns(:standup)).to eql(@standup)
     end
 
+    it "assigns @comment" do
+      post :create, :comment => { :text => "Some text" }, :standup_id => 42
+      expect(assigns(:comment)).to eql(@comment)
+    end
+
+    context "valid comment" do
+
+      it "redirects to standups" do
+        post :create, :comment => { :text => "Some text" }, :standup_id => 42
+        expect(response).to redirect_to(standups_path)
+      end
+
+    end
+
+    context "invalid comment" do
+
+      before { allow(@comment).to receive(:save) { false } }
+
+      it "returns http success" do
+        post :create, :comment => { :text => "Some text" }, :standup_id => 42
+        expect(response).to have_http_status(:success)
+      end
+
+      it "renders the new template" do
+        post :create, :comment => { :text => "Some text" }, :standup_id => 42
+        expect(response).to render_template("new")
+      end
+
+    end
   end
 end
