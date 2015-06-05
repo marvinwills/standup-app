@@ -42,8 +42,6 @@ gem "devise"
 gem "carrierwave"
 gem "rails_12factor"
 
-gem "twitter-bootstrap-rails" #, :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
-
 gem "execjs"
 gem "commonjs"
 
